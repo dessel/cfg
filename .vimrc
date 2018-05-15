@@ -15,7 +15,6 @@ Plugin 'gmarik/Vundle.vim'
 " Utility
 Plugin 'scrooloose/nerdtree'
 Plugin 'jeetsukumaran/vim-buffergator'
-Plugin 'Shougo/neocomplete.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'BufOnly.vim'
 
@@ -29,6 +28,11 @@ Plugin 'Townk/vim-autoclose'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
+
+" Ruby Support
+Plugin 'tpope/vim-rails'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'ecomba/vim-ruby-refactoring'
 
 " Erlang Support
 Plugin 'vim-erlang/vim-erlang-tags'
@@ -118,6 +122,12 @@ colorscheme spacegray
 "let g:spacegray_underline_search = 1
 "let g:spacegray_italicize_comments = 1
 
+" Configure completion
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+
+
 " Vim-Airline Configuration
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -133,12 +143,6 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
-
-" Neocomplete Settings
-let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 " RainbowToggle - 0 let enable it via :RainbowToggle
 let g:rainbow_active = 1
