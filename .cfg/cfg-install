@@ -16,3 +16,8 @@ fi;
 
 config checkout
 config config status.showUntrackedFiles no
+
+echo "source ~/.bash/.bash-powerline.sh" >> $HOME/.bashrc
+echo "export UID" >> $HOME/.bashrc
+
+
