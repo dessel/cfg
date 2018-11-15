@@ -1,6 +1,6 @@
 """" START Vundle Configuration
 
-"set nocompatible
+set nocompatible              "be iMproved, required
 
 " Disable file type for vundle
 filetype off                  " required
@@ -23,16 +23,18 @@ Plugin 'iamcco/markdown-preview.vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'slim-template/vim-slim.git'
 
+Plugin 'majutsushi/tagbar'
+
 " Generic Programming Support
 Plugin 'Townk/vim-autoclose'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-easytags'
+"Plugin 'xolox/vim-easytags'
 
 " Ruby Support
 Plugin 'tpope/vim-rails'
-Plugin 'vim-ruby/vim-ruby'
 Plugin 'ecomba/vim-ruby-refactoring'
+Plugin 'thoughtbot/vim-rspec'
 
 " Erlang Support
 Plugin 'vim-erlang/vim-erlang-tags'
@@ -151,13 +153,14 @@ let g:rainbow_active = 1
 autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
 
 "
-let g:easytags_async = 1
+"let g:easytags_async = 1
+
 
 " Automatically removing all trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
 
 if has('mouse')
-  set mouse=a
+  "  set mouse=a
 endif
 
 " open markdown preview in browser
@@ -168,6 +171,15 @@ let g:mkdp_path_to_chrome = "firefox"
 """""""""""""""""""""""""""""""""""""
 " nmap <C-\> :NERDTreeFind<CR>
 nmap <silent> <leader><leader> :NERDTreeToggle<CR>
+nmap <F8> :TagbarToggle<CR>
+
+nnoremap ]t :tnext<cr>
+nnoremap [t :tprevious<cr>]
+
+"set tags+=.tags
+"ctags -R --languages=ruby --exclude=.git --exclude=log --exclude=vendor -f tags --extra=q
+"nnoremap <leader>ct :silent ! ctags -R --languages=ruby --exclude=.git --exclude=log -f .tags<cr>
+"ripper-tags -R --exclude=vendor -f tags --extra=q
 
 " Shortcuts
 nnoremap <Leader>o :Files<CR>
@@ -194,5 +206,3 @@ nnoremap <C-Right> :vertical resize -2<CR>
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
-
-
